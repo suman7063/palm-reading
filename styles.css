@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Spectral:wght@300;400;600&display=swap');
+
+/* Ensure proper font rendering for Devanagari script */
+@font-face {
+  font-family: 'Spectral';
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0f172a;
+  --secondary: #1e293b;
+  --mint: #7DD3C0;
+  --purple: #9B7FDB;
+  --blue: #60A5FA;
+  --text: #ffffff;
+  --text-dim: #cbd5e1;
+  --card-bg: rgba(30, 41, 59, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Spectral', serif;
+  background: var(--primary);
+  color: var(--text);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Make all text more visible */
+p, span, div, label {
+  color: var(--text) !important;
+  font-weight: 400 !important;
+}
+
+/* Make dim text brighter */
+.text-text-dim,
+.text-dim {
+  color: var(--text-dim) !important;
+  font-weight: 400 !important;
+}
+
+/* Fix for Hindi/Devanagari text clipping */
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure proper spacing for Devanagari script */
+h1, h2, h3, h4, h5, h6,
+p, span, div, button, label {
+  line-height: 1.7 !important;
+  padding-top: 0.3em !important;
+  padding-bottom: 0.2em !important;
+  overflow: visible !important;
+  min-height: 1.5em;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-spectral {
+  font-family: 'Spectral', serif;
+}
+
+/* Custom Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mint);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue);
+}
+
+/* Prose styling for result text */
+.prose {
+  color: var(--text) !important;
+}
+
+.prose pre {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-family: 'Spectral', serif;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--text) !important;
+  font-weight: 400;
+}
+
+/* Fix for Hindi text in headings */
+h1, h2, h3 {
+  padding-top: 0.4em !important;
+  padding-bottom: 0.2em !important;
+  line-height: 1.4 !important;
+  overflow: visible !important;
+  min-height: 1.8em;
+}
+
+/* Fix for buttons with Hindi text */
+button {
+  padding-top: 0.4em !important;
+  padding-bottom: 0.4em !important;
+  line-height: 1.6 !important;
+  overflow: visible !important;
+  min-height: 2.5em;
+}
+
+/* Fix for card content */
+.bg-card-bg,
+.bg-secondary {
+  overflow: visible;
+}
+
+/* Ensure text containers don't clip */
+.text-center,
+.text-left,
+.text-right {
+  overflow: visible;
+  padding-top: 0.1em;
+}
+
+/* Specific fix for Devanagari script rendering */
+[lang="hi"],
+:lang(hi) {
+  line-height: 1.7 !important;
+  padding-top: 0.3em !important;
+  padding-bottom: 0.2em !important;
+}
+
+/* Fix for gradient text clipping */
+.bg-clip-text {
+  padding-top: 0.4em !important;
+  padding-bottom: 0.3em !important;
+  line-height: 1.5 !important;
+  display: inline-block;
+}
+
+/* Fix for all text elements to prevent clipping */
+span, p, div, button, h1, h2, h3, h4, h5, h6 {
+  overflow: visible;
+}
